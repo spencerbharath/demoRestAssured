@@ -21,10 +21,7 @@ public class Rest2Test {
         Assert.assertEquals(response.statusCode(),201);
         //System.out.println(response.body().asString());
 
-        JSONParser parser = new JSONParser();
-        JSONObject json = (JSONObject)parser.parse(response.body().asString());
-        System.out.println(json.get("id"));
-        Assert.assertEquals(json.get("id").toString(),"2");
+
 
     }
 

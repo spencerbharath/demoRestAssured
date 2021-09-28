@@ -24,32 +24,11 @@ public class RestTest {
         JSONObject json = (JSONObject)parser.parse(response.body().asString());
         System.out.println(json.get("page"));
         Assert.assertEquals(json.get("page").toString(),"2");
-        testingGet(json.get("page").toString());
+        //testingGet(json.get("page").toString());
 
     }
 
-    @Test
-    void testingGet(String input) {
-        Response response = RestAssured.get(baseURL+"/api/users/"+input);
-        Assert.assertEquals(response.statusCode(),200);
-    }
 
-    @Test
-    void day2TestingUsingPOST() throws ParseException {
-
-        JSONObject requestBody= new JSONObject();
-        requestBody.put("name","morpheus");
-        requestBody.put("job","leader");
-        Response response = RestAssured.given().body(requestBody.toJSONString()).post(baseURL+"/api/users");
-        Assert.assertEquals(response.statusCode(),201);
-        //System.out.println(response.body().asString());
-
-        JSONParser parser = new JSONParser();
-        JSONObject json = (JSONObject)parser.parse(response.body().asString());
-        System.out.println(json.get("id"));
-        Assert.assertEquals(json.get("id").toString(),"2");
-
-    }
 }
 
 
